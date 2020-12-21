@@ -94,7 +94,25 @@
     let day = document.getElementById('day');
     let typeSer = document.getElementById('typeSer');
     let roomtype = document.getElementById('roomtype');
-    function cv(a){
+    function cvdiscout(a){
+        switch (a) {
+            case "Đà Nẵng": {
+                return 20;
+                break;
+            }
+            case "Huế":{
+                return 10;
+                break;
+            }
+            case "Quảng Nam": {
+                return 5;
+                break;
+            }
+            default: return 0;
+        }
+    
+    }
+    function cvtypeSer(a){
         if (a == 'Villa') return 500;
         else if (a == 'House') return 300;
         else return 100;
@@ -115,7 +133,7 @@
             "<tr>" + "<td>Type of Service :</td><td>" + typeSer.value + "</td></tr>" + "" +
             "<tr>" + "<td>Type of room :</td><td>" + roomtype.value + "</td></tr>" + "</table>"
         document.writeln(sout);
-        let temp = cv(typeSer.value);
+        let temp = cvtypeSer(typeSer.value);
         document.writeln('Total : ' + Total(temp,parseInt(day.value),parseInt(discout.value)) +'$');
     }
 

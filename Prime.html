@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime</title>
+</head>
+<body>
+<script>
+    let n = prompt('n =');
+    function ktprime(a) {
+        let kt = true;
+        if (a<2) return false;
+        else {
+            for (var i=2;i<a;i++)
+                if (a%i==0) {kt = false; break;}
+        }
+        if (kt) return true;
+        else return false;
+    }
+    var i=0;
+    var j=2;
+    while (i<n){
+        if (ktprime(j)){
+            console.log(j+' ');
+            i++;
+        }
+        j++;
+    }
+</script>
+</body>
+</html>

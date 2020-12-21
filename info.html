@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Full name</h2>
+<input type="text" id="name">
+<input type="date" id="bidate">
+<h2>ID passport</h2>
+<input type="text" id="iD">
+<h2>Adress</h2>
+<input type="text" id="add">
+<h2>Email</h2>
+<input type="text" id="email">
+<h2>Customer</h2>
+<select id="cus">
+    <option>Member</option>
+    <option>Silver</option>
+    <option>Gold</option>
+    <option>Platinum</option>
+    <option>Diamond</option>
+</select>
+<h2>loai </h2>
+<select id="loaiphong">
+    <option value="Villa">Villa</option>
+    <option value="House">House</option>
+    <option value="Room">Room</option>
+</select>
+<h2>Quatily</h2>
+<input type="number" id="qual">
+<h2>Rentday</h2>
+<input type="number" id="rentday">
+<h2>roomtype</h2>
+<select id="rtype">
+    <option>Vip</option>
+    <option>Busines</option>
+    <option>Normal</option>
+</select>
+<h2>Discout</h2>
+<select id="disc">
+    <option value="5">5%</option>
+    <option value="10">10%</option>
+    <option value="15">15%</option>
+</select>
+<input type="submit" value="submit" onclick="ouput();">
+</body>
+<script>
+    let name = document.getElementById('name');
+    let bidate = document.getElementById('bidate');
+    let iD = document.getElementById('iD');
+    let add = document.getElementById('add');
+    let email = document.getElementById('email');
+    let cus = document.getElementById('cus');
+    let loaiphong = document.getElementById('loaiphong');
+    let qual = document.getElementById('qual');
+    let rentday = document.getElementById('rentday');
+    let rtype = document.getElementById('rtype');
+    let disc = document.getElementById('disc');
+    function  Total(a,b,c){
+        return  a*b*(1-c/100);
+    }
+    function cv(a){
+        if (a=='Villa') return 500;
+        else if (a=='House') return 300;
+            else return 100;
+    }
+    function ouput() {
+        let sout =
+            "<table>" +
+            "<tr>" + "<td>Name:</td><td>" + name.value + "</td></tr>"+
+            "<tr>" + "<td>Birth:</td><td>" + bidate.value + "</td></tr>"+
+            "<tr>" + "<td>ID:</td><td>" + iD.value + "</td></tr>"+
+            "<tr>" + "<td>Adress:</td><td>" + add.value + "</td></tr>"+
+            "<tr>" + "<td>Email:</td><td>" + email.value + "</td></tr>"+
+            "<tr>" + "<td>Customer:</td><td>" + cus.value + "</td></tr>"+
+            "<tr>" + "<td>Loai Phong:</td><td>" + loaiphong.value + "</td></tr>"+
+            "<tr>" + "<td>So nguoi:</td><td>" + qual.value + "</td></tr>"+
+            "<tr>" + "<td>So ngay:</td><td>" + rentday.value + "</td></tr>"+
+            "<tr>" + "<td>Room type:</td><td>" + rtype.value + "</td></tr>"+
+            "<tr>" + "<td>Discout:</td><td>" + disc.value + "%</td></tr>"
+            + "</table>";
+           document.writeln(sout);
+           let temp = cv(loaiphong.value);
+        document.writeln('Total : ' + Total(temp,parseInt(rentday.value),parseInt(disc.value)) +'$');
+    }
+</script>
+</html>

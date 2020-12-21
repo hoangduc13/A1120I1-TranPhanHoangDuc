@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RandomNumber</title>
+</head>
+<body>
+    <input type="button" value="Start" onclick="start()">
+    <input type="button" value="Restart" onclick="start()"> 
+<script>
+    function randomN(min,max) {
+        return Math.floor(Math.random()*(max-min))+min;
+    }
+    function start(){
+        let n;
+        let minN = parseInt(prompt('Input min N: '));
+        let maxN = parseInt(prompt('Input max N: '));
+        let ran = randomN(minN,maxN);
+        console.log(ran);
+        do{
+            n = parseInt(prompt('Input N: '));
+            if (ran===n){
+                alert('Lucky Number');
+                break;
+            }
+        }while (ran!==n);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let i=1,j=1,temp;
+    let sum =2;
+    for (let k=1;k<=18;k++){
+       sum += i+j;
+        temp=j;
+        j=i+j;
+        i=temp;
+    }
+    console.log(sum);
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add New Product</h1>
+<input type="text" id="newA"/>
+<button onclick="add()">Add</button>
+<h1>Display all Product</h1>
+<br>
+<table>
+    <tr>
+        <th>Product Name</th>
+        <th></th>
+        <th></th>
+        <th id="totalsp"></th>
+    </tr>
+</table>
+
+<table id="result">
+
+</table>
+<script>
+    let a = Array();
+    function de(nameDel){
+        for (let i=parseInt(nameDel); i < a.length-1; i++){
+            a[i]=a[i+1];
+        }
+        a.pop();
+        document.getElementById('result').innerHTML = '';
+        inSP();
+        totalsp();
+    }
+    function add(){
+        a[a.length]= document.getElementById('newA').value;
+        //alert('san pham moi la: '+ document.getElementById('newA').value + ' da duoc them vao danh sach');
+        let idc = a.length-1;
+        let b = '<tr id='+idc+'/>';
+        b += '<th>'+document.getElementById('newA').value+'</th>';
+        b += '<th><button onclick="edit('+idc+')">Edit</th>';
+        b += '<th><button onclick="de('+idc+')">Delete</th>';
+        document.getElementById('result').innerHTML += b;
+        document.getElementById('newA').value = '';
+        totalsp();
+    }
+    function edit(nameEd) {
+        let nameEdit = prompt('nhap ten moi');
+        document.getElementById('result').innerHTML = '';
+        a[parseInt(nameEd)] = nameEdit;
+        inSP();
+    }
+    function inSP(){
+        for (let i=0;i<a.length;i++){
+            let b = '<tr id='+i+'/>';
+            b += '<th>'+a[i]+'</th>';
+            b += '<th><button onclick="edit('+i+')">Edit</th>';
+            b += '<th><button onclick="de('+i+')">Delete</th>';
+            document.getElementById('result').innerHTML += b;
+        }
+    }
+    function totalsp() {
+        let t = a.length + ' product';
+        document.getElementById('totalsp').innerHTML = t;
+    }
+    totalsp();
+</script>
+</body>
+</html>

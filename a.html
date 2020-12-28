@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="eng">
+    <input type="text" onclick="" id="conv">
+    <button onclick="cvENG()">convers</button>
+<script>
+    function cvENG(){
+        let eNG = new Array('hello','input','ouput','again');
+        let vN  = new Array('Xin chào','đầu vào','đầu ra','lặp lại')
+        let str = document.getElementById('eng').value;
+        for (var i=0; i<eNG.length;i++){
+            if (str==eNG[i]) document.getElementById('conv').value = vN[i];
+        }
+    }
+</script>
+</body>
+</html>

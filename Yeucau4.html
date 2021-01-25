@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="FCheck.js"></script>
+    <script src="Employer.js"></script>
+    <script src="Customer.js"></script>
+</head>
+<body>
+<h1 class="table table-dark" style="height: 60px">Creat Information</h1>
+<div class="row">
+    <div class="col">
+        <table class="table table-dark">
+            <th>
+                <h3>Customer</h3>
+            </th>
+            <tr>
+                <td class="input">Full name</td>
+                <td><input type="text" ; id="name"></td>
+            </tr>
+            <tr>
+                <td class="input">ID</td>
+                <td><input type="text" ; id="id" placeholder="XXXXXXXX"></td>
+            </tr>
+            <tr>
+                <td class="input">Birthday</td>
+                <td><input type="date" ; id="birthday" placeholder="DD/MM/YYYY"></td>
+            </tr>
+            <tr>
+                <td class="input" >Email</td>
+                <td><input type="text" ; id="email" placeholder="email@example.com"></td>
+            </tr>
+            <tr>
+                <td class="input">Address</td>
+                <td><input type="text" ; id="address"></td>
+            </tr>
+            <tr>
+                <td class="input">Customer Type</td>
+                <td>
+                    <select id="typeCustomer">
+                        <option>Diamond</option>
+                        <option>Platinum</option>
+                        <option>Gold</option>
+                        <option>Silver</option>
+                        <option>Member</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="input">Discout</td>
+                <td><input type="number" min="0" id = 'discout'>%</td>
+            </tr>
+            <tr>
+                <td class="input">Quantily included</td>
+                <td><input type="number" min="0" ; id="quatilyInclud"></td>
+            </tr>
+            <tr>
+                <td class="input">Rent days</td>
+                <td><input type="number" min="0" ; id="rentDay"></td>
+            </tr>
+            <tr>
+                <td class="input">Type of service</td>
+                <td>
+                    <select id="typeService">
+                        <option>Villa</option>
+                        <option>House</option>
+                        <option>Room</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="input">Type of room</td>
+                <td>
+                    <select id="typeRoom">
+                        <option>Vip</option>
+                        <option>Business</option>
+                        <option>Normal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <a><button type="button" class="btn btn-success" onclick="addCustomer()">Submit for customer</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col">
+        <table class="table table-dark">
+            <th>
+                <h3>Employee</h3>
+            </th>
+            <tr>
+                <td class="input">Full name</td>
+                <td><input type="text" ; id="nameEmp"></td>
+            </tr>
+            <tr>
+                <td class="input">ID</td>
+                <td><input type="text" ; id="idEmp" placeholder="XXXXXXXX"></td>
+            </tr>
+            <tr>
+                <td class="input">Birthday</td>
+                <td><input type="date" ; id="birthdayEmp" placeholder="DD/MM/YYYY"></td>
+            </tr>
+            <tr>
+                <td class="input" >Email</td>
+                <td><input type="text" ; id="emailEmp" placeholder="email@example.com"></td>
+            </tr>
+            <tr>
+                <td class="input">Phone Number</td>
+                <td><button>+</button></button><input type="text" ; id="phoneNumberEmp"></td>
+            </tr>
+            <tr>
+                <td class="input">Level</td>
+                <td>
+                    <select id="levelEmp">
+                        <option>Technical</option>
+                        <option>Colleges</option>
+                        <option>University</option>
+                        <option>Graduate</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="input">Position</td>
+                <td><select id="positionEmp">
+                    <option>Manager</option>
+                    <option>Sale</option>
+                    <option>Marketing</option>
+                    <option>Staff</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a><button type="button" class="btn btn-success" onclick="addEmployee()">Submit for employee</button></a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div>
+    <h1>List Customer</h1>
+    <table id="result"  class="table">
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Birth Day</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Type Customer</th>
+            <th>Discout</th>
+            <th>Quantily included</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </table>
+    <h1>List Employee</h1>
+    <table id="result1"  class="table">
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Birth Day</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Level</th>
+            <th>Position</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+<script>
+  let listCustomer = Array();
+  let listEmployee = Array();
+  let a1 = new Customer('hoangduc','12332112','01/03/1998','hoangduc13@gmail.com','da nang','','','Villa',3,4,10);
+  listCustomer[0]=a1;
+  let b1 = new Employee('hoangduc','12332112','01/03/1998','hoangduc13@gmail.com','84903530875','Technical','Manager');
+  listEmployee[0]=b1;
+  ouputInforCustomer();
+  ouputInforEmployee();
+</script>
+</body>
+</html>

@@ -1,6 +1,11 @@
 package geometry;
 
-public class Square extends Rectangle {
+public class Square extends Rectangle implements Resizeable, Colorable {
+    @Override
+    public void resize(double percent) {
+        super.resize(percent);
+    }
+
     public Square() {
     }
     public Square(double side) {
@@ -36,5 +41,10 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public String howToColor() {
+        return super.howToColor();
     }
 }

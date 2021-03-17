@@ -1,6 +1,6 @@
 package geometry;
 
-public class Shape {
+public abstract class Shape implements Resizeable, Colorable,Comparator{
     private String color = "green";
     private boolean filled = true;
     public Shape(){
@@ -25,12 +25,29 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
+    public abstract double getArea();
+    public abstract double getPrimeter();
     @Override
     public String toString() {
         return "A Shape with color of "
                 + getColor()
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
+    }
+
+    @Override
+    public void resize(double percent) {
+    }
+
+    @Override
+    public String howToColor() {
+        return this.color;
+    }
+
+    @Override
+    public int compare(Shape h) {
+        if (getArea() > h.getArea())return 1;
+        else if (getArea() < h.getArea()) return -1;
+        else return 0;
     }
 }

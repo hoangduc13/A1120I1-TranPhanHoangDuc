@@ -1,6 +1,6 @@
 package geometry;
 
-public class Circle extends Shape {
+public class Circle extends Shape implements Resizeable, Comparable {
     private double radius = 1.0;
 
     public Circle() {
@@ -27,6 +27,11 @@ public class Circle extends Shape {
         return radius * radius * Math.PI;
     }
 
+    @Override
+    public double getPrimeter() {
+        return radius*2*Math.PI;
+    }
+
     public double getPerimeter() {
         return 2 * radius * Math.PI;
     }
@@ -37,5 +42,22 @@ public class Circle extends Shape {
                 + getRadius()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public String howToColor() {
+        return super.howToColor();
+    }
+
+    @Override
+    public void resize(double percent) {
+        radius += radius*percent/100;
+    }
+
+
+    @Override
+    public boolean compareTo(Circle o) {
+        if (getRadius() > o.getRadius()) return true;
+        else return !(getRadius() < o.getRadius());
     }
 }

@@ -42,6 +42,9 @@ public class Triangle extends Shape {
         double p = getPrimeter()/2;
         return Math.sqrt(p*(p-a)*(p-b)*(p-c));
     }
+
+    @Override
+
     public double getPrimeter(){
         return  a+b+c;
     }
